@@ -1,14 +1,75 @@
-# FibroblastAnalysis_2023
-Python and R code used to produce the analysis in Almet et al. (2023), "Fibroblasts evolve in single-cell state to drive extracellular matrix and signaling changes across wound healing."
+# Skin Wound Healing Analysis
 
-The repository is broken down as follows:
+Single-cell RNA-seq analysis pipeline for wound healing studies, including data integration, batch correction, cell cycle analysis, RNA velocity, and cell-cell communication analysis.
 
-- `data` contains .csv files of the functional gene sets used to disseminate functional drivers of fibroblast heterogeneity
-- `code` contains the Jupyter notebooks and R scripts used to generate all of the analysis
-- `output` contains the saved .csv files of cell-cell communication activity between fibroblasts and immune cells, as determined by CellChat.
+## Installation
 
-The integrated skin and fibroblast data can be found in the `data' folder of the following Google Drive link:
+### Prerequisites
 
-https://drive.google.com/drive/folders/1vhJHOT6FSlkfmri-vSq2LmoK20_2Uruq?usp=share_link
+- Python 3.8 or higher
+- pip package manager
 
-Upon publication, we will move the data to Zenodo for more accessible sharing.
+### Setup
+
+1. Clone this repository:
+```bash
+git clone <repository-url>
+cd woundhealing
+```
+
+2. Create a virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+### Additional Dependencies
+
+Some packages may require additional system dependencies:
+
+- **scvi-tools**: Requires PyTorch (automatically installed as a dependency)
+- **sccoda**: May require JAX/TensorFlow (automatically installed as a dependency)
+- **pyscenic**: Requires additional dependencies for motif analysis (see [pyscenic documentation](https://pyscenic.readthedocs.io/))
+
+For optimal performance with GPU-accelerated methods (e.g., scVI), ensure you have:
+- CUDA-compatible GPU (optional, for GPU acceleration)
+- Appropriate CUDA drivers installed
+
+## Usage
+
+The analysis pipeline consists of several Jupyter notebooks and Python scripts:
+
+### Notebooks
+- **Data Integration**: `code/notebooks/integrate_skin_data.ipynb`
+- **Cell Cycle Analysis**: `code/notebooks/cell_cycle_analysis_fibroblasts.ipynb`
+- **Fibroblast Heterogeneity**: `code/notebooks/fibroblast_heterogeneity_drivers.ipynb`
+- **Functionality Analysis**: `code/notebooks/functionality_analysis_fibroblasts.ipynb`
+- **RNA Velocity**: `code/notebooks/rna_velocity_and_paga.ipynb`
+- **SCENIC Analysis**: `code/notebooks/scenic_analysis_fibroblasts.ipynb`
+- **Subclustering Analysis**: `code/notebooks/subclustering_analysis.ipynb`
+- **Compositional Analysis**: `code/notebooks/unwounded_compositional_analysis.ipynb`
+
+### Python Scripts
+- **Batch Correction**: `code/batch_correction_integration.py` and `code/example_batch_correction.py`
+
+### R Scripts
+- **CellChat Analysis**: `code/cellchat_analysis_fibroblasts_and_immune_cells.R`
+- **Differential Expression**: `code/de_analysis_fibroblast_functionality_genes_mast.R`
+
+## Project Structure
+
+```
+woundhealing/
+├── code/
+│   ├── notebooks/     # Jupyter notebooks for analysis
+│   ├── *.py           # Python scripts
+│   └── *.R            # R scripts
+├── data/              # Input data files (.h5ad, .csv)
+├── output/            # Analysis results and figures
+└── requirements.txt
+```

@@ -1,0 +1,32 @@
+# Core scientific computing
+numpy>=1.20.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Single-cell RNA-seq analysis
+scanpy>=1.8.0
+anndata>=0.8.0
+
+# Batch correction and integration
+harmonypy>=0.0.9
+scanorama>=1.7.0
+scvi-tools>=0.15.0
+
+# RNA velocity analysis
+scvelo>=0.2.0
+
+# SCENIC analysis
+pyscenic>=0.12.0
+loompy>=3.0.0
+adjustText>=0.7.0
+
+# Compositional analysis
+sccoda>=0.1.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Utilities
+cytoolz>=0.11.0
+IPython>=7.0.0
